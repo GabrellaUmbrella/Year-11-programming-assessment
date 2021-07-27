@@ -10,4 +10,5 @@ for i, question in enumerate(questions):
     all_answers = question['incorrect_answers']
     all_answers.append(question['correct_answer'])
     random.shuffle(all_answers)
-    print(all_answers)
+    for answers in all_answers:
+        print(answers)
