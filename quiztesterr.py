@@ -5,8 +5,9 @@ response = requests.get('https://opentdb.com/api.php?amount=20&category=15&type=
 questions = response.json()['results']
 
 for i, question in enumerate(questions):
-    print(f'-------------Questions {i}--------------')
+    print(f'-------------Questions {i + 1}--------------')
     print(question['question'])
-    all_answers = [question['correct_answer'], question['incorrect_answers'], question['incorrect_answers'], question['incorrect_answers']]
-    for answers in enumerate(all_answers):
-        print(random.shuffle(answers))
+    all_answers = question['incorrect_answers']
+    all_answers.append(question['correct_answer'])
+    random.shuffle(all_answers)
+    print(all_answers)

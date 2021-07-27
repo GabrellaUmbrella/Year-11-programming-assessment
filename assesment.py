@@ -10,9 +10,10 @@ print('\033[1;36;40m' + '''
 for i, question in enumerate(questions):
     print(f'---------Question {i + 1}/20------------')
     print(question['question'])
-    print(question['correct_answer'])
-    for wrong_ans in question['incorrect_answers']:
-        print(wrong_ans)
+    all_answers = question['incorrect_answers']
+    all_answers.append(question['correct_answer'])
+    random.shuffle(all_answers)
+    print(all_answers)
     while True:
         user_answer = input('\nWrite down which one you think is the correct answer!(spell it correctly please)\n')
         if user_answer in question['incorrect_answers']:
